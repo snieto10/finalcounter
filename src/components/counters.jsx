@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Counter from "./counter";
+import AddCounterBtn from "./addCounterBtn";
 
 class Counters extends Component {
   state = {
@@ -30,21 +31,27 @@ class Counters extends Component {
     this.setState({ count });
   };
 
-  handleNewCounter = () => {};
+  handleNewCounter = () => {
+    let count = [...this.state.count];
+    let arrayNumber = count.length;
+    count.push({ id: arrayNumber, number: 0 });
+    this.setState({ count });
+  };
   render() {
     return (
       <React.Fragment>
         <div>
-          <button className="btn-add">ADD</button>
+          <AddCounterBtn onClick={this.handleNewCounter} />
         </div>
         {this.state.count.map((c) => (
-          <Counter
-            key={c.id}
-            data={c.number}
-            onAdd={() => this.handleAdd(c)}
-            onDecrease={() => this.handleDecrease(c)}
-            onDelete={() => this.handleDelete(c)}
-          />
+          <div key={c.id}>
+            <Counter
+              data={c.number}
+              onAdd={() => this.handleAdd(c)}
+              onDecrease={() => this.handleDecrease(c)}
+              onDelete={() => this.handleDelete(c)}
+            />
+          </div>
         ))}
       </React.Fragment>
     );
