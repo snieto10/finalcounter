@@ -1,5 +1,5 @@
 import React from "react";
-import Counter from "./components/counter.jsx";
+import Counters from "./components/counters.jsx";
 import NavBar from "./components/navBar.jsx";
 import "./App.css";
 
@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <NavBar />
-      <Counter />
+      <Counters />
     </div>
   );
 }
