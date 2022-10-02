@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "./toDoList.css";
 
 class ToDoList extends Component {
@@ -20,27 +19,40 @@ class ToDoList extends Component {
   handleChange = (e) => {
     let message = this.state.message;
     message = e.currentTarget.value;
-    console.log(message);
     this.setState({ message });
   };
 
+  handleDelete = () => {};
+
   render() {
-    console.log(this.state.messages);
     return (
-      <div>
-        <h1 className="title">To Do List</h1>
-        <form onSubmit={this.handleSubmit} className="form">
-          <input
-            value={this.state.message}
-            onChange={this.handleChange}
-            className="inputsize"
-            type="text"
-            placeholder="Enter Task"
-            id="data"
-          />
-          <button className="btn-submit">ADD</button>
-        </form>
-      </div>
+      <React.Fragment>
+        <div>
+          <h1 className="title">To Do List</h1>
+          <form onSubmit={this.handleSubmit} className="form">
+            <input
+              value={this.state.message}
+              onChange={this.handleChange}
+              className="inputsize"
+              type="text"
+              placeholder="Enter Task"
+              id="data"
+            />
+            <button className="btn-submit">ADD</button>
+          </form>
+        </div>
+
+        {this.state.messages.map((m) => (
+          <div className="extra">
+            <div className="task">
+              <div>{m}</div>
+              <div onClick={this.handleDelete} className="btn-delete">
+                -
+              </div>
+            </div>
+          </div>
+        ))}
+      </React.Fragment>
     );
   }
 }

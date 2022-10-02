@@ -14,9 +14,33 @@
 }
 
 .btn-submit {
-  background: red;
+  background: #09b54e;
   border-radius: 5px;
   margin-left: 5px;
   border: none;
   padding: 0.5rem 1rem;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid lightskyblue;
+  width: 50%;
+  border-radius: 5px;
+}
+
+.extra {
+  display: flex;
+  justify-content: center;
+  border: none;
+  width: 100%;
+  margin: 10px 10px;
+}
+
+.btn-delete {
+  background: red;
+  padding: 0 0.5rem;
+  border: 1px solid gray;
+  border-radius: 10px;
+  cursor: pointer;
 }
