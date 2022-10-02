@@ -4,28 +4,34 @@ import "./toDoList.css";
 
 class ToDoList extends Component {
   state = {
-    account: { username: "", password: "" },
+    message: "",
+    messages: [],
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log("submitted");
+    let messages = this.state.messages;
+    let message = this.state.message;
+    let newMessage = "";
+    messages.push(message);
+    this.setState({ messages, message: newMessage });
   };
 
   handleChange = (e) => {
-    const account = { ...this.state.account };
-    account.username = e.currentTarget.value;
-    this.setState({ account });
-    console.log(account);
+    let message = this.state.message;
+    message = e.currentTarget.value;
+    console.log(message);
+    this.setState({ message });
   };
 
   render() {
+    console.log(this.state.messages);
     return (
       <div>
         <h1 className="title">To Do List</h1>
         <form onSubmit={this.handleSubmit} className="form">
           <input
-            value={this.state.account.username}
+            value={this.state.message}
             onChange={this.handleChange}
             className="inputsize"
             type="text"
