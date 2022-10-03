@@ -10,9 +10,12 @@ class ToDoList extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     let messages = this.state.messages;
+    let obj = { id: 0, text: "" };
     let message = this.state.message;
+    obj.id = this.state.messages.length;
+    obj.text = message;
+    messages.push(obj);
     let newMessage = "";
-    messages.push(message);
     this.setState({ messages, message: newMessage });
   };
 
@@ -22,7 +25,10 @@ class ToDoList extends Component {
     this.setState({ message });
   };
 
-  handleDelete = () => {};
+  handleDelete = (m) => {
+    let messages = this.state.messages.filter((message) => message.id !== m.id);
+    this.setState({ messages });
+  };
 
   render() {
     return (
@@ -43,10 +49,10 @@ class ToDoList extends Component {
         </div>
 
         {this.state.messages.map((m) => (
-          <div className="extra">
+          <div key={m.id} className="extra">
             <div className="task">
-              <div>{m}</div>
-              <div onClick={this.handleDelete} className="btn-delete">
+              <div>{m.text}</div>
+              <div onClick={() => this.handleDelete(m)} className="btn-delete">
                 -
               </div>
             </div>
