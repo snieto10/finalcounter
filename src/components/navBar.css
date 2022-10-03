@@ -2,4 +2,27 @@
   display: flex;
   justify-content: space-around;
   margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.link:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.active {
+  color: white;
+  background: black;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+}
+
+.active:visited {
+  color: white;
+  background: black;
 }
