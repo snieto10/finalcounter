@@ -7,8 +7,10 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import NotFound from "./components/notFound.jsx";
 import BookList from "./components/booklist.jsx";
-import Fire from "./components/fire.jsx";
+import Book from "./components/book.jsx";
+import NewBook from "./components/newBook.jsx";
 import Home from "./components/home.jsx";
+import BookLayout from "./components/bookLayout";
 
 function App() {
   return (
@@ -19,8 +21,10 @@ function App() {
         <Route path="/counter" element={<Counters />} />
         <Route path="/todolist" element={<ToDoList />} />
         <Route path="/todolist/:id" element={<House />} />
-        <Route path="/booklist/" element={<BookList />} />
-        <Route path="/booklist/:id" element={<Fire />} />
+        <Route path="/booklist" element={<BookLayout />}>
+          <Route path=":id" element={<Book />} />
+          <Route path="new" element={<NewBook />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

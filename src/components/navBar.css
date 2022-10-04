@@ -1,28 +1,33 @@
 .nav {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   margin-bottom: 20px;
-  margin-top: 15px;
+  margin-top: 40px;
 }
 
 .link {
   text-decoration: none;
   color: black;
+  padding: 0.5rem 1rem;
 }
 
 .link:visited {
   text-decoration: none;
   color: black;
+  padding: 0.5rem 1rem;
 }
 
 .active {
   color: white;
-  background: black;
+  background: rgb(250, 63, 63);
   border-radius: 5px;
   padding: 0.5rem 1rem;
 }
 
 .active:visited {
   color: white;
-  background: black;
+  background: rgb(250, 63, 63);
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
 }
